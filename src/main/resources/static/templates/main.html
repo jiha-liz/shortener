@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>URL shortening</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
     <style>
         body{
@@ -28,7 +29,7 @@
         .none{
             display: none;
         }
-        .show{
+        .block{
             display: block;
         }
 
@@ -36,22 +37,54 @@
     </style>
 </head>
 <body>
-
-<div class="text-box">
-    <h3>url을 입력하세요.</h3>
-</div>
-<div class="input-box">
-    <input type="text" name="url" id="url"/>
-    <input type="button" value="변환" />
-</div>
-<div class="none">
-    <div class="text-box">
-        <h3>변경된 URL은 아래와 같습니다,</h3>
+    <div>
+        <div class="text-box">
+            <h3>url을 입력하세요.</h3>
+        </div>
+        <div class="input-box">
+            <input type="text" name="url" id="url"/>
+            <input type="button" value="변환" id="changeBtn" />
+        </div>
     </div>
-    <div class="text-box">
-        <h5 id="changeUrl">변경된 URL 블라블라</h5>
+    <div class="none">
+        <div class="text-box">
+            <h3>변경된 URL은 아래와 같습니다,</h3>
+        </div>
+        <div class="text-box">
+            <h5 >URL 호출횟수 : <label id="reqCnt"></label></h5>
+            <h5 id="changeUrl">변경된 URL 블라블라</h5>
+        </div>
     </div>
-</div>
-
 </body>
+<script type="application/javascript">
+
+
+    function urlChangeEvent (){
+
+        if($('#url').val().trim() ==""){
+            alert("URL을 입력해주세요.");
+            return false;
+        }
+
+        $.ajax({
+            url:'/change',
+            type:'POST',
+            dataType: 'json',
+            contentType : 'application/json',
+            data: JSON.stringify({
+                    url : $('#url').val()
+            }),
+            success:function(data){
+                console.log("호출");
+                console.log(data)
+            },
+            error:function () {
+                alert("변환할 수 없습니다. 다시시도해주세요.");
+            }
+        })
+    }
+
+    $('#changeBtn').click(urlChangeEvent);
+
+</script>
 </html>
