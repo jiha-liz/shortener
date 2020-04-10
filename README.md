@@ -14,6 +14,10 @@ URL을 입력하면 8Character이내 결과(Shortening된 URL)를 리턴
 
 1. 어떤 알고리즘으로 결과를 만들지  
 -> 항상 같은결과를 내려면 랜덤은 무리가 있음.. 디비를 이용해도.. 되긴하는데.. 
-2. 디비는 무엇을 쓸지
+
+2. 디비는 무엇을 쓸지  
+ => **H2 사용**  
+
 3. 구성.. ?  
--> spring boot, maven, jpa, thymeleaf, ... ?
+-> spring boot, maven, jpa, thymeleaf, ... ?  
+=> **spring boot, mabven, jpa, html, jquery**  
