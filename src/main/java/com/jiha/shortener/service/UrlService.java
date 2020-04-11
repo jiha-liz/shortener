@@ -25,7 +25,7 @@ public class UrlService {
     /**
      * 새로운 키 생성
      */
-    private void createKey(UrlMatch urlMatch) {
+    private void createKey(UrlMatch urlMatch) throws Exception {
         urlMatchRepository.save(urlMatch);
         String shortKey = Base62.encode(urlMatch.getId());
         urlMatch.setUrlKey(shortKey);
@@ -42,7 +42,7 @@ public class UrlService {
      * URL 변환
      */
     @Transactional
-    public UrlResponseDto changeUrl(UrlMatch urlMatch) {
+    public UrlResponseDto changeUrl(UrlMatch urlMatch) throws Exception {
         UrlMatch existUrl = urlMatchRepository.findByUrl(urlMatch.getUrl()).orElse(null);
         UrlResponseDto responseDto = UrlResponseDto.builder().build();
         if(existUrl == null) {

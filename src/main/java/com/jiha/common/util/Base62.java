@@ -11,18 +11,14 @@ public class Base62 {
      *
      * @param value 변환 대상
      */
-    public static String encode(long value) {
+    public static String encode(long value) throws Exception {
         final StringBuilder sb = new StringBuilder();
         do {
             int i = (int)(value % 62);
             sb.append(BASE62[i]);
             value /= 62;
         } while (value > 0);
-        if(sb.length() > 8) try {
-            throw new Exception("Shortening Key 생성 오류입니다.");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        if(sb.length() > 8) throw new Exception("Shortening Key 생성 오류입니다.");
         return sb.toString();
     }
 

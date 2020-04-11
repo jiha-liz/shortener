@@ -20,7 +20,7 @@ public class MainController {
     }
 
     @PostMapping("/change")
-    public @ResponseBody UrlResponseDto createUrl(@RequestBody UrlMatch urlMatch){
+    public @ResponseBody UrlResponseDto createUrl(@RequestBody UrlMatch urlMatch) throws Exception {
         return urlService.changeUrl(urlMatch);
     }
 

@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Base62Test {
 
     @Test
-    public void changeUrl(){
+    public void changeUrl() throws Exception {
 
         long id = 1;
 
