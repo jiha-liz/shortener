@@ -1,8 +1,6 @@
 package com.jiha.shortener.domain;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +8,7 @@ import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
+@NoArgsConstructor
 public class UrlRequest {
 
     /**
@@ -22,15 +19,17 @@ public class UrlRequest {
     private Long requestId;
 
     /**
-     * URL
+     * Short URL key
      */
     private String urlKey;
 
     /**
      * 요청시간
      */
-    private LocalDateTime requestTime;
+    private LocalDateTime requestTime = LocalDateTime.now();
 
-    
 
+    public UrlRequest(String urlKey) {
+        this.urlKey = urlKey;
+    }
 }
