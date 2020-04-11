@@ -24,7 +24,7 @@ public class UrlRequest {
     /**
      * URL
      */
-    private String url;
+    private String urlKey;
 
     /**
      * 요청시간

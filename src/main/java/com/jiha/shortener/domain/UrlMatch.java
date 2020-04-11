@@ -4,6 +4,7 @@ import lombok.Data;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,10 +13,16 @@ import javax.persistence.Table;
 public class UrlMatch {
 
     /**
-     * URL을 변환한 키
+     * ID
      */
     @Id
-    private String key;
+    @GeneratedValue
+    private Long id;
+
+    /**
+     * ID를 인코딩한 결과
+     */
+    private String urlKey;
 
     /**
      * 사용자 입력 URL
