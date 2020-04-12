@@ -75,8 +75,6 @@
                     url : $('#url').val().trim()
             }),
             success:function(data){
-                console.log("호출");
-                console.log(data);
                 $('#resBox').removeClass("none").addClass("show");
                 $('#changeUrl').text(data.changeUrl);
                 $('#reqCnt').text(data.reqCnt);
