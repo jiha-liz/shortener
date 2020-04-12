@@ -68,4 +68,6 @@ URL을 입력하면 8Character이내 결과(Shortening된 URL)를 리턴
  6. 서비스 확인
     <pre>
     http://localhost
+    or
+    http://localhost/main
     </pre>
